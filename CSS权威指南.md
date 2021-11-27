@@ -67,8 +67,30 @@
     - [4.4.1. 角度](#441-角度)
     - [4.4.2. 时间](#442-时间)
 - [5. 字体](#5-字体)
-  - [5.1. 字体族](#51-字体族)
-  - [5.2. 5.2.](#52-52)
+  - [5.1. font-family](#51-font-family)
+  - [5.2. @font-face](#52-font-face)
+  - [5.3. font-weight](#53-font-weight)
+  - [5.4. font-size](#54-font-size)
+  - [5.5. font-style](#55-font-style)
+  - [5.6. font-variant](#56-font-variant)
+  - [5.7. font](#57-font)
+- [6. 文本](#6-文本)
+  - [6.1. text-indet](#61-text-indet)
+  - [6.2. text-align](#62-text-align)
+  - [6.3. text-align-last](#63-text-align-last)
+  - [6.4. line-height](#64-line-height)
+  - [6.5. verital-align](#65-verital-align)
+  - [6.6. wording-spacing](#66-wording-spacing)
+  - [6.7. letter-spacing](#67-letter-spacing)
+  - [6.8. text-tarnsform](#68-text-tarnsform)
+  - [6.9. text-decoration](#69-text-decoration)
+  - [6.10. text-shadow](#610-text-shadow)
+  - [6.11. white-space](#611-white-space)
+  - [6.12. line-break](#612-line-break)
+  - [6.13. overflow-wrap](#613-overflow-wrap)
+  - [6.14. writing-mode](#614-writing-mode)
+  - [6.15. text-orientation](#615-text-orientation)
+  - [6.16. direaction](#616-direaction)
 
 # 1. CSS 简介
 
@@ -1624,8 +1646,50 @@ CSS 中的单位不止有长度这一项，而是种类繁多。但是其中只�
 
 # 5. 字体
 
+## 5.1. font-family
 
+## 5.2. @font-face
 
-## 5.1. 字体族
+## 5.3. font-weight
 
-## 5.2. 5.2.
+## 5.4. font-size
+
+## 5.5. font-style
+
+## 5.6. font-variant
+
+## 5.7. font
+
+# 6. 文本
+
+## 6.1. text-indet
+
+## 6.2. text-align
+
+## 6.3. text-align-last
+
+## 6.4. line-height
+
+## 6.5. verital-align
+
+## 6.6. wording-spacing
+
+## 6.7. letter-spacing
+
+## 6.8. text-tarnsform
+
+## 6.9. text-decoration
+
+## 6.10. text-shadow
+
+## 6.11. white-space
+
+## 6.12. line-break
+
+## 6.13. overflow-wrap
+
+## 6.14. writing-mode
+
+## 6.15. text-orientation
+
+## 6.16. direaction
