@@ -78,22 +78,25 @@
   - [5.6. font-variant](#56-font-variant)
   - [5.7. font](#57-font)
 - [6. 文本](#6-文本)
-  - [6.1. text-indet](#61-text-indet)
-  - [6.2. text-align](#62-text-align)
-  - [6.3. text-align-last](#63-text-align-last)
-  - [6.4. line-height](#64-line-height)
-  - [6.5. verital-align](#65-verital-align)
-  - [6.6. wording-spacing](#66-wording-spacing)
-  - [6.7. letter-spacing](#67-letter-spacing)
-  - [6.8. text-tarnsform](#68-text-tarnsform)
-  - [6.9. text-decoration](#69-text-decoration)
-  - [6.10. text-shadow](#610-text-shadow)
-  - [6.11. white-space](#611-white-space)
-  - [6.12. line-break](#612-line-break)
-  - [6.13. overflow-wrap](#613-overflow-wrap)
-  - [6.14. writing-mode](#614-writing-mode)
-  - [6.15. text-orientation](#615-text-orientation)
-  - [6.16. direaction](#616-direaction)
+  - [6.1. 缩进与行内对齐](#61-缩进与行内对齐)
+    - [6.1.1. text-indent](#611-text-indent)
+    - [6.1.2. text-align](#612-text-align)
+    - [6.1.3. text-align-last](#613-text-align-last)
+  - [6.2. 块级对齐](#62-块级对齐)
+    - [6.2.1. line-height](#621-line-height)
+    - [6.2.2. vertical-align](#622-vertical-align)
+  - [6.3. 文本间距](#63-文本间距)
+    - [6.3.1. wording-spacing](#631-wording-spacing)
+    - [6.3.2. letter-spacing](#632-letter-spacing)
+  - [6.4. text-transform](#64-text-transform)
+  - [6.5. text-decoration](#65-text-decoration)
+  - [6.6. text-shadow](#66-text-shadow)
+  - [6.7. 处理空白](#67-处理空白)
+  - [6.8. line-break](#68-line-break)
+  - [6.9. overflow-wrap](#69-overflow-wrap)
+  - [6.10. writing-mode](#610-writing-mode)
+  - [6.11. text-orientation](#611-text-orientation)
+  - [6.12. direaction](#612-direaction)
 - [7. 盒模型基础](#7-盒模型基础)
 - [8. 边距](#8-边距)
 - [9. 颜色，背景和渐变](#9-颜色背景和渐变)
@@ -1689,7 +1692,7 @@ body {
 
 ## 5.2. @font-face
 
-@font-face 的作用是让你在设计中使用自定义的字体。这个特性首次出现在 CSS2中。
+@font-face 的作用是让你在设计中使用自定义的字体。这个特性首次出现在 CSS2 中。
 
 假设你想使用的字体没有广泛安装，而是个特殊的字体。借助 @font-face，你可以定义一个专门的字体族名称，对应服务器上的一个字体文件。用户代理将下载那个文件，使用它渲染。
 
@@ -1697,8 +1700,8 @@ body {
 
 ```css
 @font-face {
-  font-family: "SwitzeraADF";
-  src: url("SwitzeraADF-Regular.otf");
+  font-family: 'SwitzeraADF';
+  src: url('SwitzeraADF-Regular.otf');
 }
 ```
 
@@ -1706,7 +1709,7 @@ body {
 
 font-weight 属性可以精确控制字重。一般来说，自重越大，字体越黑，越粗。
 
-font-weight 属性值可以取 100 到 900的正一百值。还可以取 normal, bold, bolder, lighter 这几个关键字。不过一般而言，还是推荐使用关键字。
+font-weight 属性值可以取 100 到 900 的正一百值。还可以取 normal, bold, bolder, lighter 这几个关键字。不过一般而言，还是推荐使用关键字。
 
 ## 5.4. font-size
 
@@ -1744,37 +1747,121 @@ font 属性是 font-style, font-size, font-family 属性的简写。
 
 # 6. 文本
 
-## 6.1. text-indet
+本章讨论关于文本属性的控制。不过在此之前，我们要明白“行内”和“块级”这两个术语。文本书写的块级方向是指文本是竖直放置的，就像一个个段落那样。而行内书写方向是横向的，可能是从左至右（比如英语），也可能是从右往左（阿拉伯语）。
 
-## 6.2. text-align
+## 6.1. 缩进与行内对齐
 
-## 6.3. text-align-last
+### 6.1.1. text-indent
 
-## 6.4. line-height
+多数语言在排版时，会缩进第一段的第一行。以前，要想达到缩进效果，会在第一行的左边放一个透明的图像。CSS 为缩进文本提供了一个更好的方法：text-indent。
 
-## 6.5. verital-align
+text-indent 属性把元素第一行文本缩进指定的长度。这个属性常用作缩进段落的第一行。
 
-## 6.6. wording-spacing
+例如：
 
-## 6.7. letter-spacing
+```css
+p {
+  text-indent: 2em;
+}
+```
 
-## 6.8. text-tarnsform
+text-indent 可以用于任何块级元素上，但不能用于行内元素或替换性元素。
 
-## 6.9. text-decoration
+### 6.1.2. text-align
 
-## 6.10. text-shadow
+text-align 可以控制元素中每行文本的对齐方式。这个属性的值可以取 start，end，left，right，center，justify。
 
-## 6.11. white-space
+left，right，和 center 取值从字面意思就可以看出它们的含义。left 代表各行文本靠左对齐。right 则是靠右。center 是居中对齐。
 
-## 6.12. line-break
+CSS3 添加了 start 和 end。这是由于一些语言，如阿拉伯语默认情况下就是从右往左书写的。新修订的 start 值表示文本与元素盒子的起始边对齐。end 表示和元素盒子的终止边对齐。
 
-## 6.13. overflow-wrap
+justify 值表示两端对齐。
 
-## 6.14. writing-mode
+### 6.1.3. text-align-last
 
-## 6.15. text-orientation
+有时候，你可能希望对齐最后一行。此时，你可以使用 text-align-last。它的取值和 text-align 基本一致。
 
-## 6.16. direaction
+## 6.2. 块级对齐
+
+讲完行内文本对齐后，我们开始讲块级文本对齐。
+
+### 6.2.1. line-height
+
+line-height 可以控制文本行的高度。在讲解之前我们首先得了解行高是由什么构成的。
+
+实际上，一个文本行的高度并不是字体的大小，而是加上了行距。一般而言，如果字体大小是 16px，那么浏览器会设置行高为 16px 的 1.2 倍，这样字的上下方就各有 (16px \* 1.2 - 16px) = 0.6px 的行距，这样文本行之间显得就不是很紧密。
+
+如果我们设置了 line-height 为 18px，那么相当于增大了行距，假设字体大小为 16px，那么行距为：(18px - 16px)/2 = 1px。
+
+### 6.2.2. vertical-align
+
+vertical-align 可以控制行内元素文本竖直方向的对齐。它可以取值：baseline，sub，super，bottom，text-bottom，middle，top 和 text-top。
+
+当 vertical-align 取 baseline（默认值）时，会使得元素的基线和父元素的基线对齐。如果目标元素没有基线，例如替换性元素，那么元素的底端和父元素的基线对齐。
+
+当 vertical-align 取 sub 值时，元素的基线低于父元素的基线，此时我们说目标元素位于下标位置。不同的浏览器对于目标元素的下沉距离实现不同。
+
+和 sub 类似，super 值使得目标元素位于上标位置。
+
+当 vertical-align 取 bottom 值时，目标元素和父元素的文本行底部对齐。
+
+和 bottom 类似，top 值使得目标元素和父元素的文本行顶部对齐。
+
+## 6.3. 文本间距
+
+本节来讨论单词间距和字符间距。
+
+### 6.3.1. wording-spacing
+
+word-spacing 属性用来指定文本的单词间距。默认值为 0。对于单词的定义，不能适用于象形文字。
+
+### 6.3.2. letter-spacing
+
+letter-spacing 属性用来指定文本的字符间距。默认值为 0。这个属性可以用于象形文字。
+
+## 6.4. text-transform
+
+text-transform 用于转换文本，可以取值：none(默认值), lowercase, uppercase, 和 captalize。
+
+lowercase 用于将文本转为小写。uppercase 用于将文本转为大写。captalize 用于将单词的首字母大写。
+
+## 6.5. text-decoration
+
+text-decoration 用于装饰文本。可以取值：none(默认值), underline, overline, line-through, blink。
+
+underline 在文本下面加上下划线，overline 在文本上面加上一条线。line-through 绘制一条穿过文本的线，也叫删除线。
+
+## 6.6. text-shadow
+
+text-shadow 用于给文本加上阴影。这个属性的默认值为 none。
+
+这个属性可以多次使用，相当于给文本加上多个阴影。
+
+下面的例子演示了一个文本阴影：
+
+```css
+p {
+  text-shadow: black 5px 2px;
+}
+```
+
+第一个参数表示阴影的颜色，第 2 个参数表示阴影的横向偏移，在这个例子中阴影向右边偏移了 5px，第 3 个参数表示纵向偏移。
+
+## 6.7. 处理空白
+
+white-space 属性用于处理 HTML 源码中的空格，换行符，制表符。
+
+white-space 属性可以取值：normal(默认值), nowrap, pre, pre-wrap, pre-line。
+
+## 6.8. line-break
+
+## 6.9. overflow-wrap
+
+## 6.10. writing-mode
+
+## 6.11. text-orientation
+
+## 6.12. direaction
 
 # 7. 盒模型基础
 
