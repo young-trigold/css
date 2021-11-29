@@ -73,46 +73,71 @@
     - [5.4.1. 边框长度](#541-边框长度)
     - [5.4.2. 边框颜色](#542-边框颜色)
     - [5.4.3. 边框样式](#543-边框样式)
-    - [5.4.4. border 简写属性](#544-border-简写属性)
-- [6. 颜色，背景和渐变](#6-颜色背景和渐变)
-  - [6.1. 颜色](#61-颜色)
-  - [6.2. 背景](#62-背景)
-  - [6.3. 渐变](#63-渐变)
-- [7. 字体](#7-字体)
-  - [7.1. font-family](#71-font-family)
-  - [7.2. @font-face](#72-font-face)
-  - [7.3. font-weight](#73-font-weight)
-  - [7.4. font-size](#74-font-size)
-    - [7.4.1. 绝对大小](#741-绝对大小)
-    - [7.4.2. 相对大小](#742-相对大小)
-    - [7.4.3. 长度单位](#743-长度单位)
-  - [7.5. font-style](#75-font-style)
-  - [7.6. font-variant](#76-font-variant)
-  - [7.7. font](#77-font)
-- [8. 文本](#8-文本)
-  - [8.1. 缩进与行内对齐](#81-缩进与行内对齐)
-    - [8.1.1. text-indent](#811-text-indent)
-    - [8.1.2. text-align](#812-text-align)
-    - [8.1.3. text-align-last](#813-text-align-last)
-  - [8.2. 块级对齐](#82-块级对齐)
-    - [8.2.1. line-height](#821-line-height)
-    - [8.2.2. vertical-align](#822-vertical-align)
-  - [8.3. 文本间距](#83-文本间距)
-    - [8.3.1. wording-spacing](#831-wording-spacing)
-    - [8.3.2. letter-spacing](#832-letter-spacing)
-  - [8.4. text-transform](#84-text-transform)
-  - [8.5. text-decoration](#85-text-decoration)
-  - [8.6. text-shadow](#86-text-shadow)
-  - [8.7. 处理空白](#87-处理空白)
-    - [8.7.1. white-space](#871-white-space)
-    - [8.7.2. tab-size](#872-tab-size)
-  - [8.8. 换行和断字](#88-换行和断字)
-    - [8.8.1. word-break](#881-word-break)
-    - [8.8.2. line-break](#882-line-break)
-    - [8.8.3. overflow-wrap](#883-overflow-wrap)
-  - [8.9. 书写模式](#89-书写模式)
-    - [8.9.1. writing-mode](#891-writing-mode)
-    - [8.9.2. text-orientation](#892-text-orientation)
+    - [5.4.4. 边框简写属性](#544-边框简写属性)
+  - [5.5. 行内元素与 direction](#55-行内元素与-direction)
+- [6. 视觉格式化模型](#6-视觉格式化模型)
+  - [6.1. 视觉格式化模型简介](#61-视觉格式化模型简介)
+  - [6.2. 控制盒子生成](#62-控制盒子生成)
+  - [6.3. 定位方案](#63-定位方案)
+  - [6.4. 正常流](#64-正常流)
+  - [6.5. 浮动](#65-浮动)
+  - [6.6. 绝对定位](#66-绝对定位)
+  - [6.7. display, position 和 float 之间的关系](#67-display-position-和-float-之间的关系)
+  - [6.8. 对比正常流，浮动和绝对定位](#68-对比正常流浮动和绝对定位)
+  - [6.9. 分层显示](#69-分层显示)
+  - [6.10. 文本方向](#610-文本方向)
+- [7. 视觉格式化细节](#7-视觉格式化细节)
+  - [7.1. 包含块的定义](#71-包含块的定义)
+  - [7.2. 内容宽度：width 属性](#72-内容宽度width-属性)
+  - [7.3. 计算width和margin](#73-计算width和margin)
+  - [7.4. 最小与最大宽度](#74-最小与最大宽度)
+  - [7.5. 内容高度：height 属性](#75-内容高度height-属性)
+  - [7.6. 计算height和 margin](#76-计算height和-margin)
+  - [7.7. 最小与最大高度](#77-最小与最大高度)
+  - [7.8. 行高的计算](#78-行高的计算)
+- [8. 弹性盒子](#8-弹性盒子)
+- [9. 网格](#9-网格)
+- [10. 表格](#10-表格)
+- [11. 生成内容和列表](#11-生成内容和列表)
+- [12. 颜色，背景和渐变](#12-颜色背景和渐变)
+  - [12.1. 颜色](#121-颜色)
+  - [12.2. 背景](#122-背景)
+  - [12.3. 渐变](#123-渐变)
+- [13. 字体](#13-字体)
+  - [13.1. font-family](#131-font-family)
+  - [13.2. @font-face](#132-font-face)
+  - [13.3. font-weight](#133-font-weight)
+  - [13.4. font-size](#134-font-size)
+    - [13.4.1. 绝对大小](#1341-绝对大小)
+    - [13.4.2. 相对大小](#1342-相对大小)
+    - [13.4.3. 长度单位](#1343-长度单位)
+  - [13.5. font-style](#135-font-style)
+  - [13.6. font-variant](#136-font-variant)
+  - [13.7. font](#137-font)
+- [14. 文本](#14-文本)
+  - [14.1. 缩进与行内对齐](#141-缩进与行内对齐)
+    - [14.1.1. text-indent](#1411-text-indent)
+    - [14.1.2. text-align](#1412-text-align)
+    - [14.1.3. text-align-last](#1413-text-align-last)
+  - [14.2. 块级对齐](#142-块级对齐)
+    - [14.2.1. line-height](#1421-line-height)
+    - [14.2.2. vertical-align](#1422-vertical-align)
+  - [14.3. 文本间距](#143-文本间距)
+    - [14.3.1. wording-spacing](#1431-wording-spacing)
+    - [14.3.2. letter-spacing](#1432-letter-spacing)
+  - [14.4. text-transform](#144-text-transform)
+  - [14.5. text-decoration](#145-text-decoration)
+  - [14.6. text-shadow](#146-text-shadow)
+  - [14.7. 处理空白](#147-处理空白)
+    - [14.7.1. white-space](#1471-white-space)
+    - [14.7.2. tab-size](#1472-tab-size)
+  - [14.8. 换行和断字](#148-换行和断字)
+    - [14.8.1. word-break](#1481-word-break)
+    - [14.8.2. line-break](#1482-line-break)
+    - [14.8.3. overflow-wrap](#1483-overflow-wrap)
+  - [14.9. 书写模式](#149-书写模式)
+    - [14.9.1. writing-mode](#1491-writing-mode)
+    - [14.9.2. text-orientation](#1492-text-orientation)
 
 # 1. CSS 简介
 
@@ -1805,27 +1830,314 @@ h1 {
 
 ## 5.4. 边框属性
 
+边框属性指定了一个盒子的边框区域的宽度、颜色和样式。这些属性适用于所有元素。
+
 ### 5.4.1. 边框长度
+
+边框宽度属性指定了边框区域的宽度。本节中定义的属性指的是 `<border-width>` 值类型，它可以取以下值之一。
+
+- thin
+  一个薄的边框。
+
+- medium
+  一个中等厚度的边框。
+
+- thick
+  一个厚边框。
+
+- `<length>`
+  边框的厚度有一个明确的值。明确的边框宽度不能是负值。
+
+前三个值的解释取决于用户代理。不过，以下关系必须成立。
+
+'thin'<='medium'<='thick'。
+
+此外，这些宽度在整个文档中必须是恒定的。
+
+| 属性名   | border-top-width, border-right-width, border-bottom-width, border-left-width |
+| -------- | ---------------------------------------------------------------------------- | -------- |
+| 值       | `<border-width>                                                              | inherit` |
+| 初始值   | medium                                                                       |
+| 适用元素 | 所有                                                                         |
+| 可继承   | 否                                                                           |
+| 百分数   | 不适用                                                                       |
+| 计算值   | 绝对长度；如果 border-style 为'none'或'hidden'，则为'0'。                    |
+
+这个属性设置了一个盒子的顶部、右侧、底部和左侧边框的宽度：
+
+| 属性名   | border-width                                              |
+| -------- | --------------------------------------------------------- | -------- |
+| 值       | `<border-width>{1,4}                                      | inherit` |
+| 初始值   | medium                                                    |
+| 适用元素 | 所有                                                      |
+| 可继承   | 否                                                        |
+| 百分数   | 不适用                                                    |
+| 计算值   | 绝对长度；如果 border-style 为'none'或'hidden'，则为'0'。 |
+
+这个属性是在样式表的同一个地方设置 "border-top-width"、"border-right-width"、"border-bottom-width "和 "border-left-width "的简写属性。
+
+如果只有一个组件值，它适用于所有边框。如果有两个值，顶部和底部的边框被设置为第一个值，右侧和左侧被设置为第二个值。如果有三个值，顶部被设置为第一个值，左边和右边被设置为第二个值，底部被设置为第三个值。如果有四个值，它们分别适用于顶部、右侧、底部和左侧。
+
+在下面的例子中，注释指出了顶部、右侧、底部和左侧边框的结果宽度。
+
+```css
+h1 {
+  border-width: thin;
+} /* thin thin thin thin */
+h1 {
+  border-width: thin thick;
+} /* thin thick thick */
+h1 {
+  border-width: thin thick medium;
+} /* thin thick medium thick */
+```
 
 ### 5.4.2. 边框颜色
 
+边框颜色属性指定了一个盒子的边框的颜色。
+
+| 属性名   | border-top-color, border-right-color, border-bottom-color, border-left-color |
+| -------- | ---------------------------------------------------------------------------- | ----------- | -------- |
+| 值       | `<color>                                                                     | transparent | inherit` |
+| 初始值   | color 属性的值                                                               |
+| 适用元素 | 所有                                                                         |
+| 可继承   | 否                                                                           |
+| 百分数   | 不适用                                                                       |
+| 计算值   | 当取自'color'属性时，是'color'的计算值；否则，按照规范执行                   |
+
+| 属性名   | border-color                                               |
+| -------- | ---------------------------------------------------------- | ----------------- | -------- |
+| 值       | `[<color>                                                  | transparent]{1,4} | inherit` |
+| 初始值   | color 属性的值                                             |
+| 适用元素 | 所有                                                       |
+| 可继承   | 否                                                         |
+| 百分数   | 不适用                                                     |
+| 计算值   | 当取自'color'属性时，是'color'的计算值；否则，按照规范执行 |
+
+border-color 属性设置了四个边框的颜色。值有以下含义。
+
+- `<color>`
+  指定一个颜色值。
+
+- transparent
+  边框是透明的（尽管它可能有宽度）。
+
+border-color 属性可以有 1 到 4 个分量值，值的设置与 "border-width" 一样在不同的边上。
+
+如果一个元素的边框颜色没有用 border 属性指定，用户代理必须使用该元素的'color'属性的值作为边框颜色的计算值。
+
+在这个例子中，边框将是一条实心黑线。
+
+```css
+p {
+  color: black;
+  background: white;
+  border: solid;
+}
+```
+
 ### 5.4.3. 边框样式
 
-### 5.4.4. border 简写属性
+边框样式属性指定了盒子的边框的线条样式（实线、双线、虚线，等等）。本节中定义的属性指的是`<border-style>`值类型，它可以取以下值之一：
 
-# 6. 颜色，背景和渐变
+- none
+  没有边框；计算出的边框宽度为零。
 
-## 6.1. 颜色
+- hidden
+  与'无'相同，除了在表格元素的边界冲突解决方面。
 
-## 6.2. 背景
+- dotted
+  边框是一系列的点。
 
-## 6.3. 渐变
+- dashed
+  边框是一系列的短线段。
 
-# 7. 字体
+- solid
+  边框是一个单一的线段。
+
+- double
+  边框是两条实线。两条线和它们之间的空间之和等于'border-width'的值。
+
+- groove
+  边框看起来好像是刻在画布上的。
+
+- ridge
+  与'凹槽'相反：边框看起来就像从画布里出来的一样。
+
+- inset
+  边框使盒子看起来好像嵌入了画布中。
+
+- outset
+  与 "inset" 相反：边框使盒子看起来像是从画布中出来的。
+
+所有的边框都是在盒子的背景上画的。对于'groove'、'ridge'、'inset'和'outset'的值所绘制的边框的颜色取决于元素的边框颜色属性，但是用户可以选择自己的算法来计算实际使用的颜色。例如，如果'border-color'的值是'silver'，那么用户可以使用从白色到深灰色的渐变色来表示一个倾斜的边框。
+
+| 属性名   | border-top-style, border-right-style, border-bottom-style, border-left-style |
+| -------- | ---------------------------------------------------------------------------- | -------- |
+| 值       | `<border-style>                                                              | inherit` |
+| 初始值   | none                                                                         |
+| 适用元素 | 所有                                                                         |
+| 可继承   | 否                                                                           |
+| 百分数   | 不适用                                                                       |
+| 计算值   | 按照规范执行                                                                 |
+
+| 属性名   | border-color         |
+| -------- | -------------------- | -------- |
+| 值       | `<border-style>{1,4} | inherit` |
+| 初始值   | none                 |
+| 适用元素 | 所有                 |
+| 可继承   | 否                   |
+| 百分数   | 不适用               |
+| 计算值   | 按照规范执行         |
+
+border-style 属性设置了四个边框的样式。它可以有 1 到 4 个分量的值，而且这些值是在不同的边上设置的，就像上面的 'border-width'。
+
+```css
+#xy34 {
+  border-style: solid dotted;
+}
+```
+
+在上面的例子中，水平边框将是'solid'，垂直边框将是'dotted'。
+
+由于边框样式的初始值是 'none'，所以除非设置了边框样式，否则不会有边框可见。
+
+### 5.4.4. 边框简写属性
+
+| 属性名   | border-top, border-right, border-bottom, border-left |
+| -------- | ---------------------------------------------------- | --- | -------------- | --- | ---------------------- | -------- |
+| 值       | `[ <border-width>                                    |     | <border-style> |     | <'border-top-color'> ] | inherit` |
+| 初始值   | 见单个属性                                           |
+| 适用元素 | 所有                                                 |
+| 可继承   | 否                                                   |
+| 百分数   | 不适用                                               |
+| 计算值   | 见单个属性                                           |
+
+这是一个简写属性，用于设置一个盒子的顶部、右侧、底部和左侧边界的宽度、样式和颜色。
+
+```css
+h1 {
+  border-bottom: thick solid red;
+}
+```
+
+上述规则将设置 h1 元素下方边框的宽度、样式和颜色。省略的值被设置为其初始值。因为下面的规则没有指定边框的颜色，所以边框将具有'color'属性所指定的颜色。
+
+```css
+h1 {
+  border-bottom: thick solid;
+}
+```
+
+| 属性名   | border            |
+| -------- | ----------------- | --- | -------------- | --- | ---------------------- | -------- |
+| 值       | `[ <border-width> |     | <border-style> |     | <'border-top-color'> ] | inherit` |
+| 初始值   | 见单个属性        |
+| 适用元素 | 所有              |
+| 可继承   | 否                |
+| 百分数   | 不适用            |
+| 计算值   | 见单个属性        |
+
+border 属性是一个简写属性，用于为一个盒子的所有四个边框设置相同的宽度、颜色和样式。与简写的'margin'和'padding'属性不同，'border'属性不能在四个边框上设置不同的值。要做到这一点，必须使用一个或多个其他的边框属性。
+
+例如，下面的第一条规则等同于它后面显示的四条规则集合。
+
+```css
+p {
+  border: solid red;
+}
+
+p {
+  border-top: solid red;
+  border-right: solid red;
+  border-bottom: solid red;
+  border-left: solid red;
+}
+```
+
+因为在某种程度上，这些属性有重叠的功能，所以指定规则的顺序很重要。
+
+考虑一下这个例子。
+
+```css
+blockquote {
+  border: solid red;
+  border-left: double;
+  color: black;
+}
+```
+
+在上面的例子中，左边边框的颜色是黑色，而其他边框是红色。这是由于'border-left'设置了宽度、样式和颜色。由于颜色值不是由'border-left'属性给出的，它将从'color'属性中获取。事实上，'color'属性是在'border-left'属性之后设置的，这与此无关。
+
+## 5.5. 行内元素与 direction
+
+对于每个行内盒子，用户代理必须采取为每个元素生成的行内盒子，并按照视觉顺序（而不是逻辑顺序）渲染边距、外边距和内边距。
+
+当元素的'direction'属性为'ltr'时，元素出现的第一个行内盒子的最左边生成的框有左外边距、左边框和左内边距，而元素出现的最后一个行内盒子的最右边生成的盒子有右内边距、右边框和右外边距。
+
+当元素的'direction'属性为'rtl'时，元素出现的第一个行内盒子的最右边生成的框有右内边距、右边框 和右外边距，而元素出现的最后一个行内盒子的最左边生成的框有左外边距、左边框 和左内边距。
+
+# 6. 视觉格式化模型
+
+## 6.1. 视觉格式化模型简介
+
+## 6.2. 控制盒子生成
+
+## 6.3. 定位方案
+
+## 6.4. 正常流
+
+## 6.5. 浮动
+
+## 6.6. 绝对定位
+
+## 6.7. display, position 和 float 之间的关系
+
+## 6.8. 对比正常流，浮动和绝对定位
+
+## 6.9. 分层显示
+
+## 6.10. 文本方向
+
+# 7. 视觉格式化细节
+
+## 7.1. 包含块的定义
+
+## 7.2. 内容宽度：width 属性
+
+## 7.3. 计算width和margin
+
+## 7.4. 最小与最大宽度
+
+## 7.5. 内容高度：height 属性
+
+## 7.6. 计算height和 margin
+
+## 7.7. 最小与最大高度
+
+## 7.8. 行高的计算
+
+# 8. 弹性盒子
+
+# 9. 网格
+
+# 10. 表格
+
+# 11. 生成内容和列表
+
+# 12. 颜色，背景和渐变
+
+## 12.1. 颜色
+
+## 12.2. 背景
+
+## 12.3. 渐变
+
+# 13. 字体
 
 设计字体属性是样式表常见的用途之一。
 
-## 7.1. font-family
+## 13.1. font-family
 
 我们熟知的字体包含多个变体：粗体，斜体等。例如，Times 字体实际上有：TimesRegular, TimesBold, TimesItalic 等。Times 的这些变体都是来自于一个字体族，而不是一种字体。
 
@@ -1847,7 +2159,7 @@ body {
 
 这样做，如果用户电脑没有安装 Georgia，则文档就会显示 serif。
 
-## 7.2. @font-face
+## 13.2. @font-face
 
 @font-face 的作用是让你在设计中使用自定义的字体。这个特性首次出现在 CSS2 中。
 
@@ -1862,21 +2174,21 @@ body {
 }
 ```
 
-## 7.3. font-weight
+## 13.3. font-weight
 
 font-weight 属性可以精确控制字重。一般来说，自重越大，字体越黑，越粗。
 
 font-weight 属性值可以取 100 到 900 的正一百值。还可以取 normal, bold, bolder, lighter 这几个关键字。不过一般而言，还是推荐使用关键字。
 
-## 7.4. font-size
+## 13.4. font-size
 
 font-size 属性用于控制字体的大小。
 
-### 7.4.1. 绝对大小
+### 13.4.1. 绝对大小
 
 font-size 支持的绝对大小值有：xx-small, x-small, small, medium, large, x-large, 和 xx-large。这个几个关键字没有固定的大小是相对而言的。
 
-### 7.4.2. 相对大小
+### 13.4.2. 相对大小
 
 关键字 larger 和 smaller 相对简单，它们根据父元素的字号增大或减少一定比例。
 
@@ -1884,31 +2196,31 @@ font-size 支持的绝对大小值有：xx-small, x-small, small, medium, large,
 
 em 这个相对单位和百分数相似，1em 相当于 100%。
 
-### 7.4.3. 长度单位
+### 13.4.3. 长度单位
 
 font-size 可以设置为任何的长度值。
 
-## 7.5. font-style
+## 13.5. font-style
 
 font-style 设置字体在 normal（常规），italic（斜体），和 oblique（倾斜体之间做选择）。
 
 斜体和倾斜体之间的区别是，斜体是一种单独的字型，字母的构造有改动。而倾斜体只是竖直体的倾斜版本。
 
-## 7.6. font-variant
+## 13.6. font-variant
 
 font-variant 设置了字体的一些变形信息。
 
-## 7.7. font
+## 13.7. font
 
 font 属性是 font-style, font-size, font-family 属性的简写。
 
-# 8. 文本
+# 14. 文本
 
 本章讨论关于文本属性的控制。不过在此之前，我们要明白“行内”和“块级”这两个术语。文本书写的块级方向是指文本是竖直放置的，就像一个个段落那样。而行内书写方向是横向的，可能是从左至右（比如英语），也可能是从右往左（阿拉伯语）。
 
-## 8.1. 缩进与行内对齐
+## 14.1. 缩进与行内对齐
 
-### 8.1.1. text-indent
+### 14.1.1. text-indent
 
 多数语言在排版时，会缩进第一段的第一行。以前，要想达到缩进效果，会在第一行的左边放一个透明的图像。CSS 为缩进文本提供了一个更好的方法：text-indent。
 
@@ -1924,7 +2236,7 @@ p {
 
 text-indent 可以用于任何块级元素上，但不能用于行内元素或替换性元素。
 
-### 8.1.2. text-align
+### 14.1.2. text-align
 
 text-align 可以控制元素中每行文本的对齐方式。这个属性的值可以取 start，end，left，right，center，justify。
 
@@ -1934,15 +2246,15 @@ CSS3 添加了 start 和 end。这是由于一些语言，如阿拉伯语默认�
 
 justify 值表示两端对齐。
 
-### 8.1.3. text-align-last
+### 14.1.3. text-align-last
 
 有时候，你可能希望对齐最后一行。此时，你可以使用 text-align-last。它的取值和 text-align 基本一致。
 
-## 8.2. 块级对齐
+## 14.2. 块级对齐
 
 讲完行内文本对齐后，我们开始讲块级文本对齐。
 
-### 8.2.1. line-height
+### 14.2.1. line-height
 
 line-height 可以控制文本行的高度。在讲解之前我们首先得了解行高是由什么构成的。
 
@@ -1950,7 +2262,7 @@ line-height 可以控制文本行的高度。在讲解之前我们首先得了�
 
 如果我们设置了 line-height 为 18px，那么相当于增大了行距，假设字体大小为 16px，那么行距为：(18px - 16px)/2 = 1px。
 
-### 8.2.2. vertical-align
+### 14.2.2. vertical-align
 
 vertical-align 可以控制行内元素文本竖直方向的对齐。它可以取值：baseline，sub，super，bottom，text-bottom，middle，top 和 text-top。
 
@@ -1964,31 +2276,31 @@ vertical-align 可以控制行内元素文本竖直方向的对齐。它可以�
 
 和 bottom 类似，top 值使得目标元素和父元素的文本行顶部对齐。
 
-## 8.3. 文本间距
+## 14.3. 文本间距
 
 本节来讨论单词间距和字符间距。
 
-### 8.3.1. wording-spacing
+### 14.3.1. wording-spacing
 
 word-spacing 属性用来指定文本的单词间距。默认值为 0。对于单词的定义，不能适用于象形文字。
 
-### 8.3.2. letter-spacing
+### 14.3.2. letter-spacing
 
 letter-spacing 属性用来指定文本的字符间距。默认值为 0。这个属性可以用于象形文字。
 
-## 8.4. text-transform
+## 14.4. text-transform
 
 text-transform 用于转换文本，可以取值：none(默认值), lowercase, uppercase, 和 captalize。
 
 lowercase 用于将文本转为小写。uppercase 用于将文本转为大写。captalize 用于将单词的首字母大写。
 
-## 8.5. text-decoration
+## 14.5. text-decoration
 
 text-decoration 用于装饰文本。可以取值：none(默认值), underline, overline, line-through, blink。
 
 underline 在文本下面加上下划线，overline 在文本上面加上一条线。line-through 绘制一条穿过文本的线，也叫删除线。
 
-## 8.6. text-shadow
+## 14.6. text-shadow
 
 text-shadow 用于给文本加上阴影。这个属性的默认值为 none。
 
@@ -2004,9 +2316,9 @@ p {
 
 第一个参数表示阴影的颜色，第 2 个参数表示阴影的横向偏移，在这个例子中阴影向右边偏移了 5px，第 3 个参数表示纵向偏移。
 
-## 8.7. 处理空白
+## 14.7. 处理空白
 
-### 8.7.1. white-space
+### 14.7.1. white-space
 
 white-space 属性用于处理 HTML 源码中的空格，换行符，制表符。
 
@@ -2040,40 +2352,40 @@ pre-wrap 和 pre-line 是 CSS2.1 引入的，设为 pre-wrap 时，文本中的�
 | pre-wrap | 保留 | 保留   | 允许     |
 | pre      | 保留 | 保留   | 禁止     |
 
-### 8.7.2. tab-size
+### 14.7.2. tab-size
 
 既然 white-space 取某些值时空白保留下来，那么制表符就会被保留下来。但一个制表符等于多少个空格呢？tab-size 属性就派上了用场。
 
 默认情况下，一个制表符相当于 8 个连续的空格。不过，可以使用 tab-size 属性改变。
 
-## 8.8. 换行和断字
+## 14.8. 换行和断字
 
-### 8.8.1. word-break
+### 14.8.1. word-break
 
 word-break 属性用于控制文本换行。可以取值：normal, break-all, keep-all。
 
 默认值 normal 的意思是文本在单词之间换行。如果使用 break-all，换行可以出现在任意字符之间。keep-all 禁止在字符之间换行。
 
-### 8.8.2. line-break
+### 14.8.2. line-break
 
 line-break 适用于中文，日文以及韩文语言的换行。这个属性可以取值：auto，loose，normal，和 strict。
 
-### 8.8.3. overflow-wrap
+### 14.8.3. overflow-wrap
 
 overflow-wrap 用于文本行超出容器时的处理。可以取值：normal 和 break-word。当取 normal 时，按照单词之间换行。使用 break-word 时可以在单词内部换行。
 
-## 8.9. 书写模式
+## 14.9. 书写模式
 
 英语是从左向右从上到下排列的，然而其他语言并不都是这样。
 
-### 8.9.1. writing-mode
+### 14.9.1. writing-mode
 
 writing-mode 可以指定书写模式。可以取值：horizontal-tb（默认值），vertical-rl，vertical-lr。
 
 默认值 horizontal-tb 表示行内方向为横向，块级方向为从上到下。后 2 个值得行内方向时纵向，块级方向分别为从右到左和从
 左到右。
 
-### 8.9.2. text-orientation
+### 14.9.2. text-orientation
 
 选定书写模式后，可能还想改变文本行中字符的方向。这就要用到 text-orientation。可以取值：mixed（默认），upright，sideways。
 
