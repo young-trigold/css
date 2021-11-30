@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 200" style="enable-background:new 0 0 300 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#666666;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st1{fill:#CCCCCC;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st2{fill:#F2F2F2;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st3{font-family:'AdobeSongStd-Light-GBpc-EUC-H';}
+	.st4{font-size:12px;}
+	.st5{fill:#0000FF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st6{fill:#FF0000;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st7{fill:#009245;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+	.st8{fill:#FFFF00;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+</style>
+<rect x="14.09" y="21.22" class="st0" width="269.19" height="150"/>
+<rect x="70.97" y="58.35" class="st1" width="155.43" height="82.69"/>
+<rect x="106.83" y="78.36" class="st2" width="83.71" height="42.67"/>
+<text transform="matrix(1 0 0 1 138.0001 102.5353)" class="st3 st4">内容</text>
+<text transform="matrix(1 0 0 1 132.0003 73.1544)" class="st3 st4">内边距</text>
+<text transform="matrix(1 0 0 1 138.0003 54.5703)" class="st3 st4">边框</text>
+<text transform="matrix(1 0 0 1 132.0003 34.2995)" class="st3 st4">外边距</text>
+<path class="st0" d="M226.4,141.04"/>
+<polygon class="st5" points="45.09,44.35 251.91,44.35 227.41,58.35 70.97,58.35 "/>
+<polygon class="st6" points="253.41,155.04 46.59,155.04 71.09,141.04 227.53,141.04 "/>
+<polygon class="st7" points="45.09,44.35 70.97,58.35 71.09,141.04 46.59,155.04 "/>
+<polygon class="st8" points="252.4,155.04 226.52,141.04 226.4,58.35 250.9,44.35 "/>
+<text transform="matrix(1 0 0 1 138 55.6743)" class="st3 st4">边框</text>
+<text transform="matrix(1 0 0 1 98.4178 35.1755)" class="st3 st4">TM</text>
+<text transform="matrix(1 0 0 1 21.3592 99.6928)" class="st3 st4">LM</text>
+<text transform="matrix(1 0 0 1 142.7452 167.434)" class="st3 st4">BM</text>
+<text transform="matrix(1 0 0 1 259.1591 99.9084)" class="st3 st4">RM</text>
+<text transform="matrix(1 0 0 1 100.8989 55.6743)" class="st3 st4">TB</text>
+<text transform="matrix(1 0 0 1 55.3834 99.6928)" class="st3 st4">LB</text>
+<text transform="matrix(1 0 0 1 143.1773 152.3273)" class="st3 st4">BB</text>
+<text transform="matrix(1 0 0 1 232.9693 99.8004)" class="st3 st4">RB</text>
+<text transform="matrix(1 0 0 1 101.211 73.1543)" class="st3 st4">TP</text>
+<text transform="matrix(1 0 0 1 84.171 99.6927)" class="st3 st4">LP</text>
+<text transform="matrix(1 0 0 1 143.6094 134.1009)" class="st3 st4">BP</text>
+<text transform="matrix(1 0 0 1 198.3007 99.6925)" class="st3 st4">RP</text>
+</svg>
