@@ -89,14 +89,15 @@
     - [3.4.7. 否定伪类](#347-否定伪类)
   - [3.5. 伪元素](#35-伪元素)
     - [3.5.1. ::first-line 伪元素](#351-first-line-伪元素)
-      - [3.5.1.1. CSS中的第一个格式化行定义](#3511-css中的第一个格式化行定义)
+      - [3.5.1.1. CSS 中的第一个格式化行定义](#3511-css-中的第一个格式化行定义)
     - [3.5.2. ::first-letter 伪元素](#352-first-letter-伪元素)
     - [3.5.3. ::before 和 ::after 伪元素](#353-before-和-after-伪元素)
   - [3.6. 组合符](#36-组合符)
     - [3.6.1. 后代元素组合符](#361-后代元素组合符)
-    - [3.6.2. 子元素选择器](#362-子元素选择器)
-    - [3.6.3. 后续兄弟元素选择器](#363-后续兄弟元素选择器)
-    - [3.6.4. 下一个兄弟元素选择器](#364-下一个兄弟元素选择器)
+    - [3.6.2. 子元素组合符](#362-子元素组合符)
+    - [3.6.3. 兄弟元素组合符](#363-兄弟元素组合符)
+      - [3.6.3.1. 下一个兄弟元素组合符](#3631-下一个兄弟元素组合符)
+      - [3.6.3.2. 后续兄弟元素组合符](#3632-后续兄弟元素组合符)
 - [4. 层叠和继承](#4-层叠和继承)
   - [4.1. @import 规则](#41-import-规则)
     - [4.1.1. 条件 @import 规则](#411-条件-import-规则)
@@ -1980,7 +1981,7 @@ color: attr(color); /* 'color' 不接受字符串 */
 | E:lang(fr)                     | 一个语言为 "fr" 的 E 类型元素（文件语言指定如何确定语言）                        | :lang 伪类                                                                     | 2          |
 | E:enabled 和 E:disabled        | 一个用户界面元素 E，它被启用或禁用                                               | UI 元素状态伪类                                                                | 3          |
 | E:checked                      | 一个被选中的用户界面元素 E（例如一个单选按钮或复选框）                           | UI 元素说明伪类                                                                | 3          |
-| E::first-line                  | 一个 E 元素的第一个格式化行                                                    | ::first-line 伪元素                                                            | 1          |
+| E::first-line                  | 一个 E 元素的第一个格式化行                                                      | ::first-line 伪元素                                                            | 1          |
 | E::first-letter                | 一个 E 元素的第一个格式化的字母                                                  | ::first-letter 伪元素                                                          | 1          |
 | E::before                      | 在 E 元素之前生成的内容                                                          | ::before 伪元素                                                                | 2          |
 | E::after                       | 在一个 E 元素之后生成的内容                                                      | ::after 伪元素                                                                 | 2          |
@@ -2572,7 +2573,7 @@ html:lang(de)
 
 #### 3.4.6.5. 结构性伪类
 
-选择器引入了结构性伪类的概念，允许根据位于文档树中但不能由其他简单选择器或组合器表示的额外信息进行选择。
+选择器引入了结构性伪类的概念，允许根据位于文档树中但不能由其他简单选择器或组合符表示的额外信息进行选择。
 
 在计算一个元素在其兄弟元素列表中的位置时，独立的文本和其他非元素节点不被计算在内；索引的编号从 1 开始。
 
@@ -2876,36 +2877,36 @@ html|*:not(:link):not(:visited)
 
 ## 3.5. 伪元素
 
-伪元素创造了关于文档树的抽象，超出了文档语言所规定的内容。例如，文档语言不提供访问一个元素内容的第一个字母或第一行的机制。伪元素允许作者参考这些本来无法访问的信息。伪元素还可以为作者提供一种方法来引用源文件中不存在的内容（例如，::before和::after的伪元素可以访问生成的内容）。
+伪元素创造了关于文档树的抽象，超出了文档语言所规定的内容。例如，文档语言不提供访问一个元素内容的第一个字母或第一行的机制。伪元素允许作者参考这些本来无法访问的信息。伪元素还可以为作者提供一种方法来引用源文件中不存在的内容（例如，::before 和::after 的伪元素可以访问生成的内容）。
 
 伪元素是由两个冒号（::）组成，后面是伪元素的名称。
 
-这个::的符号是由当前的文件引入的，目的是在伪类和伪元素之间建立一个区分。为了与现有的样式表兼容，用户代理也必须接受以前在CSS第1和第2级中引入的伪元素的单引号符号（即:第一行、:第一字母、:前和:后）。对于本规范中引入的新的伪元素，这种兼容性是不允许的。
+这个::的符号是由当前的文件引入的，目的是在伪类和伪元素之间建立一个区分。为了与现有的样式表兼容，用户代理也必须接受以前在 CSS 第 1 和第 2 级中引入的伪元素的单引号符号（即:第一行、:第一字母、:前和:后）。对于本规范中引入的新的伪元素，这种兼容性是不允许的。
 
 每个选择器只能出现一个伪元素，如果出现，它必须出现在代表选择器主体的简单选择器序列之后。注意：本规范的未来版本可能允许每个选择器出现多个伪元素。
-
 
 ### 3.5.1. ::first-line 伪元素
 
 ::first-line 伪元素描述了一个元素的第一行格式化的内容。
 
 ```css
-p::first-line { text-transform: uppercase }
+p::first-line {
+  text-transform: uppercase;
+}
 ```
 
-上述规则意味着 "将每个p元素的第一行的字母改为大写"。
+上述规则意味着 "将每个 p 元素的第一行的字母改为大写"。
 
-选择器`p::first-line`并不匹配任何真正的文档元素。它确实匹配一个伪元素，符合要求的用户代理会在每个p元素的开头插入这个伪元素。
+选择器`p::first-line`并不匹配任何真正的文档元素。它确实匹配一个伪元素，符合要求的用户代理会在每个 p 元素的开头插入这个伪元素。
 
-请注意，第一行的长度取决于许多因素，包括页面的宽度、字体大小等等。因此，一个普通的HTML段落，如：
+请注意，第一行的长度取决于许多因素，包括页面的宽度、字体大小等等。因此，一个普通的 HTML 段落，如：
 
 ```html
-<P>This is a somewhat long HTML
-paragraph that will be broken into several
-lines. The first line will be identified
-by a fictional tag sequence. The other lines
-will be treated as ordinary lines in the
-paragraph.</P>
+<p>
+  This is a somewhat long HTML paragraph that will be broken into several lines.
+  The first line will be identified by a fictional tag sequence. The other lines
+  will be treated as ordinary lines in the paragraph.
+</p>
 ```
 
 它的行数恰好被打断，如下所示：
@@ -2921,56 +2922,60 @@ ordinary lines in the paragraph.
 这个段落可能被用户代理 "改写"，以包括::第一行的虚构标签序列。这个虚构的标签序列有助于显示属性是如何被继承的：
 
 ```html
-<P><P::first-line> This is a somewhat long HTML
-paragraph that </P::first-line> will be broken into several
-lines. The first line will be identified
-by a fictional tag sequence. The other lines
-will be treated as ordinary lines in the
-paragraph.</P>
+<p>
+  <P::first-line>This is a somewhat long HTML paragraph that</P::first-line>
+  will be broken into several lines. The first line will be identified by a
+  fictional tag sequence. The other lines will be treated as ordinary lines in
+  the paragraph.
+</p>
 ```
 
-如果一个伪元素分割了一个真实的元素，所需要的效果通常可以通过一个虚构的标签序列来描述，这个标签序列关闭然后重新打开该元素。因此，如果我们用span元素来标记前面的段落：
+如果一个伪元素分割了一个真实的元素，所需要的效果通常可以通过一个虚构的标签序列来描述，这个标签序列关闭然后重新打开该元素。因此，如果我们用 span 元素来标记前面的段落：
 
 ```html
-<P><SPAN class="test"> This is a somewhat long HTML
-paragraph that will be broken into several
-lines.</SPAN> The first line will be identified
-by a fictional tag sequence. The other lines
-will be treated as ordinary lines in the
-paragraph.</P>
+<p>
+  <span class="test">
+    This is a somewhat long HTML paragraph that will be broken into several
+    lines.
+  </span>
+  The first line will be identified by a fictional tag sequence. The other lines
+  will be treated as ordinary lines in the paragraph.
+</p>
 ```
 
-当为::first-line插入虚构的标签序列时，用户代理可以模拟span的开始和结束标签：
-
-<P><P::first-line><SPAN class="test">这是一个
-somewhat long HTML
-paragraph that will </SPAN></P::first-line><SPAN class="test"> be
-broken into several
-lines.</SPAN> The first line will be identified
-by a fictional tag sequence. The other lines
-will be treated as ordinary lines in the
-paragraph.</P>
-
-#### 3.5.1.1. CSS中的第一个格式化行定义
-
-在CSS中，::first-line伪元素只有在连接到一个类似于块状的容器（如块状框、inline-block、table-caption或table-cell）时才能产生作用。在这种情况下，它指的是该容器的 **第一个格式化行**。
-
-一个元素的第一个格式化行可能会出现在同一个流程中的块级下级中（即，一个没有因为浮动或定位而脱离流程的块级下级）。例如，`<DIV><P>This line...</P></DIV>` 中的DIV的第一行是P的第一行（假设P和DIV都是块级的）。
-
-表格单元或inline-block的第一行不能是一个祖先元素的第一行格式。因此，在 `<DIV><P STYLE="display: inline-block">Hello<BR>Goodbye</P> etcetera</DIV>` 中，DIV的第一个格式化行不是 "Hello "这一行。
-
-注意：注意这个片段中p的第一行。`<p><br>First...`不包含任何字母（假设HTML 4中br的默认样式）。"First "这个词并不在第一行格式化的地方。
-
-UA应该像::第一行伪元素的虚构开始标签一样，正好嵌套在最内层的包围块级元素里面。(由于CSS1和CSS2对这种情况没有规定，作者不应该依赖这种行为）。例如，虚构的标签序列为：
+当为::first-line 插入虚构的标签序列时，用户代理可以模拟 span 的开始和结束标签：
 
 ```html
-<DIV>
-  <P>第一段</P>
-  <P>第二段</P>
-</DIV>
+<p>
+  <P::first-line>
+    <span class="test">This is a somewhat long HTML paragraph that will</span>
+  </P::first-line>
+  <span class="test">be broken into several lines.</span>
+  The first line will be identified by a fictional tag sequence. The other lines
+  will be treated as ordinary lines in the paragraph.
+</p>
 ```
 
-是
+#### 3.5.1.1. CSS 中的第一个格式化行定义
+
+在 CSS 中，::first-line 伪元素只有在连接到一个类似于块状的容器（如块状框、inline-block、table-caption 或 table-cell）时才能产生作用。在这种情况下，它指的是该容器的 **第一个格式化行**。
+
+一个元素的第一个格式化行可能会出现在同一个流程中的块级下级中（即，一个没有因为浮动或定位而脱离流程的块级下级）。例如，`<DIV><P>This line...</P></DIV>` 中的 DIV 的第一行是 P 的第一行（假设 P 和 DIV 都是块级的）。
+
+表格单元或 inline-block 的第一行不能是一个祖先元素的第一行格式。因此，在 `<DIV><P STYLE="display: inline-block">Hello<BR>Goodbye</P> etcetera</DIV>` 中，DIV 的第一个格式化行不是 "Hello "这一行。
+
+注意：注意这个片段中 p 的第一行。`<p><br>First...`不包含任何字母（假设 HTML 4 中 br 的默认样式）。"First "这个词并不在第一行格式化的地方。
+
+UA 应该像::第一行伪元素的虚构开始标签一样，正好嵌套在最内层的包围块级元素里面。(由于 CSS1 和 CSS2 对这种情况没有规定，作者不应该依赖这种行为）。例如，虚构的标签序列为：
+
+```html
+<div>
+  <p>第一段</p>
+  <p>第二段</p>
+</div>
+```
+
+是：
 
 ```html
 <DIV>
@@ -2979,13 +2984,85 @@ UA应该像::第一行伪元素的虚构开始标签一样，正好嵌套在最�
 </DIV>
 ```
 
-::first-line伪元素与内联级元素类似，但有某些限制。下列CSS属性适用于::第一行伪元素：字体属性、颜色属性、背景属性、"字间距"、"字母间距"、"文本装饰"、"文本变换"、"行高"。UA也可以应用其他属性。
+::first-line 伪元素与内联级元素类似，但有某些限制。下列 CSS 属性适用于::第一行伪元素：字体属性、颜色属性、背景属性、"字间距"、"字母间距"、"文本装饰"、"文本变换"、"行高"。UA 也可以应用其他属性。
 
-在CSS继承过程中，出现在第一行的子元素部分只从::第一行伪元素继承适用于::第一行伪元素的属性。对于所有其他的属性，都是从第一行伪元素的非伪元素父元素继承。(不出现在第一行的子元素的部分总是继承自该子元素的父元素)。
+在 CSS 继承过程中，出现在第一行的子元素部分只从::第一行伪元素继承适用于::第一行伪元素的属性。对于所有其他的属性，都是从第一行伪元素的非伪元素父元素继承。(不出现在第一行的子元素的部分总是继承自该子元素的父元素)。
 
 ### 3.5.2. ::first-letter 伪元素
 
+::first-letter 伪元素代表一个元素的第一个字母，如果它前面没有任何其他内容（如图像或内联表格）的话。::first-letter 伪元素可用于 "首字母大写 "和 "小写"，这是常见的排版效果。
+
+标点符号（即 Unicode 中定义的 "开放"（Ps）、"关闭"（Pe）、"初始"（Pi）的字符。"最后"（Pf）和 "其他"（Po）的标点符号），在第一个字母之前或之后都应包括在内。[UNICODE]
+
+在第一个字母之前的引号应被包括在内。
+
+如果第一个字母实际上是一个数字，例如，"6700 万美元是很多钱 "中的 "6"，那么:第一字母也适用。
+
+注意：在某些情况下，::first-letter 伪元素应该包括多于一行中的第一个非标点符号。例如，组合字符必须与它们的基本字符一起保留。此外，一些语言可能有关于如何处理某些字母组合的具体规则。UA 对::first-letter 的定义至少应包括 UAX29 所定义的默认字母群，并可根据情况包括更多。例如，在荷兰语中，如果字母组合 "ij "出现在一个元素的开头，那么这两个字母应该被认为是在::first-letter 伪元素中。[UAX29]
+
+如果构成::第一个字母的字母不在同一个元素中，例如`<p>'<em>T...`中的`'T`，UA 可以从其中一个元素、两个元素中创建一个::第一个字母伪元素，或者干脆不创建伪元素。
+
+同样，如果块的第一个字母不在行的开头（例如由于双向重新排序），那么 UA 不需要创建伪元素。
+
+下面的 CSS 和 HTML 例子说明了重叠的伪元素如何交互。每个 P 元素的第一个字母将是绿色的，字体大小为 "24pt"。第一行格式化的其余部分将是'蓝色'，而该段的其余部分将是'红色'。
+
+```css
+p {
+  color: red;
+  font-size: 12pt;
+}
+p::first-letter {
+  color: green;
+  font-size: 200%;
+}
+p::first-line {
+  color: blue;
+}
+```
+
+```html
+<p>一些结束于两行的文字</p>
+```
+
+假设在 "结束" 一词之前会有一个换行，这个片段的虚构标签序列可能是：
+
+```html
+<P>
+<P::first-letter>
+<P::first-letter>
+S
+</P::first-letter>ome text that
+</P::first-line>
+ends up on two lines
+</P>
+```
+
+注意::first-letter 元素是在::first-line 元素里面。在::first-line 上设置的属性由::first-letter 继承，但如果在::first-letter 上设置了相同的属性，则会被覆盖。
+
+第一个字母必须出现在第一个格式化的行上。例如，在这个 HTML 片段中。`<p><br>First...` 第一行不包含任何字母，并且::first-letter 不匹配任何东西（假设 HTML 4 中 br 的默认样式）。特别是，它不匹配 "First" 的 "F"。
+
 ### 3.5.3. ::before 和 ::after 伪元素
+
+'::before'和'::after'伪元素可以用来在一个元素的内容之前或之后插入生成的内容。它们在生成文本部分有解释。
+
+```css
+h1::before {
+  content: counter(chapno, upper-roman) '. ';
+}
+```
+
+当 ::first-letter 和 ::first-line 伪元素被应用于一个有使用 ::before 和 ::after 生成的内容的元素时，它们适用于该元素的第一个字母或行，包括生成的内容。
+
+```css
+p.special::before {
+  content: 'Special! ';
+}
+p.special::first-letter {
+  color: #ffd800;
+}
+```
+
+这将使 "Special！"的 "S"呈现为金色。
 
 ## 3.6. 组合符
 
@@ -2993,92 +3070,90 @@ UA应该像::第一行伪元素的虚构开始标签一样，正好嵌套在最�
 
 ### 3.6.1. 后代元素组合符
 
-后代组合符（通常用单个空格（ ）字符表示）组合了两个选择器，如果第二个选择器匹配的元素具有与第一个选择器匹配的祖先（父母，父母的父母，父母的父母的父母等）元素，则它们将被选择。利用后代组合符的选择器称为后代选择器。
+有时，作者可能希望选择器描述一个元素是文档树中另一个元素的后代元素（例如，"一个包含在 H1 元素中的 EM 元素"）。后代元素组合符表达了这样一种关系。后代元素组合符是分隔两个简单选择器序列的空白。一个 "A B "形式的选择器代表一个元素 B，它是某个祖先元素 A 的任意后代元素。
 
-从技术上讲，后代组合符是两个选择器之间的一个或多个 CSS 空格字符-空格字符和/或四个控制字符之一：回车，换页，换行和制表符在没有其他组合符的情况下。此外，组成组合符的空白字符可以包含任意数量的 CSS 注释。
-
-```css
-h1 em {
-  color: red;
-}
-```
-
-这个例子中，选择了 h1 元素中的所有 em 元素。
-
-### 3.6.2. 子元素选择器
-
-如果您不希望选择任意的后代元素，而是希望缩小范围，只选择某个元素的子元素，请使用子元素选择器（Child selector）。例如，如果您希望选择只作为 h1 元素子元素的 strong 元素，可以这样写：
+例如，考虑下面这个选择器:
 
 ```css
-h1 > strong {
-  color: red;
-}
+h1 em
 ```
 
-这个规则会把第一个 h1 下面的两个 strong 元素变为红色，但是第二个 h1 中的 strong 不受影响：
+它表示一个 em 元素是 h1 元素的后代元素。它是对以下片段的正确和有效的描述，但也是部分描述：
+
+```css
+<h1>这个<span class="myclass">标题
+是<em>非常</em>重要的</span></h1>。
+```
+
+下面的选择器：
+
+```css
+div * p
+```
+
+代表一个 p 元素，它是 div 元素的孙子元素或后面的后代元素。注意 "\*" 两边的空白不是通用选择器的一部分；空白是一个组合符，表示 div 必须是某个元素的祖先元素，而该元素必须是 p 的祖先元素。
+
+下面的选择器结合了后代元素组合符和属性选择器，表示一个元素：(1)设置了 href 属性；(2)位于本身位于 div 内的 p 内。
+
+```css
+div p *[href]
+```
+
+### 3.6.2. 子元素组合符
+
+一个子元素组合符描述了两个元素之间的父子关系。子组合符由 "大于号"（U+003E，>）字符组成，并将两个简单选择器的序列分开。
+
+下面的选择器表示一个 p 元素是 body 的子元素：
+
+```css
+body > p
+```
+
+下面的例子结合了后代元素组合符和子元素组合符：
+
+```css
+div ol>li p
+```
+
+它表示一个 p 元素是 li 元素的后代元素；li 元素必须是 ol 元素的子元素；ol 元素必须是 div 的后代元素。请注意，">"组合符周围的可选空白已经被省略。
+
+关于选择一个元素的第一个子元素的信息，请看上面的 :first-child 伪类的部分。
+
+### 3.6.3. 兄弟元素组合符
+
+有两个不同的兄弟元素组合符：下一个兄弟元素组合符和后续兄弟元素组合符。在这两种情况下，在考虑元素的相邻关系时，非元素节点（如元素之间的文本）被忽略。
+
+#### 3.6.3.1. 下一个兄弟元素组合符
+
+下一个同族组合符是由 "加号"（U+002B，+）字符组成的，它将两个简单选择器的序列分开。这两个序列所代表的元素在文档树中共享同一个父级，第一个序列所代表的元素紧接在第二个序列所代表的元素之前。
+
+下面的选择器表示一个 p 元素紧随一个数学元素之后：
+
+```css
+math + p
+```
+
+下面的选择器在概念上与前面的例子相似，只是它增加了一个属性选择器--它给 h1 元素增加了一个约束条件，即它必须有 class="opener"：
+
+```css
+h1.opener + h2
+```
+
+#### 3.6.3.2. 后续兄弟元素组合符
+
+后续兄弟元素组合符是由 "tilde"（U+007E，~）字符组成的，它将两个简单选择器的序列分开。这两个序列所代表的元素在文档树中共享同一个父级，第一个序列所代表的元素在第二个序列所代表的元素之前（不一定马上）。
+
+```css
+h1 ~ pre
+```
+
+表示一个 pre 元素在 h1 之后。这是一个正确的、有效的、但部分的描述：
 
 ```html
-<h1>
-  This is
-  <strong>very</strong>
-  <strong>very</strong>
-  important.
-</h1>
-<h1>
-  This is
-  <em>
-    really
-    <strong>very</strong>
-  </em>
-  important.
-</h1>
+<h1>函数a的定义</h1>
+<p>函数a(x)必须应用于表格中的所有数字。</p>
+<pre>函数a(x) = 12x/13.5</pre>
 ```
-
-### 3.6.3. 后续兄弟元素选择器
-
-兄弟选择符，位置无须紧邻，只须同层级，A~B 选择 A 元素之后所有同层级 B 元素。
-
-```css
-p ~ span {
-  color: red;
-}
-```
-
-```html
-<span>This is not red.</span>
-<p>Here is a paragraph.</p>
-<code>Here is some code.</code>
-<span>And here is a span.</span>
-```
-
-这样，只有最后一个 span 元素会被选中。
-
-### 3.6.4. 下一个兄弟元素选择器
-
-相邻兄弟选择器 (+) 介于两个选择器之间，当第二个元素紧跟在第一个元素之后，并且两个元素都是属于同一个父元素的子元素，则第二个元素将被选中。
-
-```css
-li + li {
-  font-weight: bold;
-}
-```
-
-```html
-<div>
-  <ul>
-    <li>List item 1</li>
-    <li>List item 2</li>
-    <li>List item 3</li>
-  </ul>
-  <ol>
-    <li>List item 1</li>
-    <li>List item 2</li>
-    <li>List item 3</li>
-  </ol>
-</div>
-```
-
-上面这个选择器只会把列表中的第二个和第三个列表项变为粗体。第一个列表项不受影响。
 
 # 4. 层叠和继承
 
