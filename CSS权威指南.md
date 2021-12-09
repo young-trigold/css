@@ -97,6 +97,7 @@
   - [4.1. @import 规则](#41-import-规则)
     - [4.1.1. 条件 @import 规则](#411-条件-import-规则)
     - [4.1.2. 处理样式表导入](#412-处理样式表导入)
+    - [4.1.3. link 和 @import](#413-link-和-import)
   - [4.2. 值处理](#42-值处理)
     - [4.2.1. 声明值](#421-声明值)
     - [4.2.2. 层叠值](#422-层叠值)
@@ -410,9 +411,9 @@ all 属性是一个简写属性，可以重置除 'direction' 和 'unicode-bidi'
 
 注意：除了方向和 unicode-bidi 之外的 CSS 属性实际上是标记级的特性，不应该在作者的样式表中设置。(它们作为 CSS 属性存在，只是为了给 UA 不支持的文档语言设置样式)。作者应该使用适当的标记，如 HTML 的 dir 属性，而不是。[css-writing-modes-3]。
 
-例如，如果作者在一个元素上指定了 all: initial，它将阻止所有的继承并重置所有的属性，就像没有规则出现在级联的作者、用户或 user-agent 层一样。
+例如，如果作者在一个元素上指定了 `all: initial`，它将阻止所有的继承并重置所有的属性，就像没有规则出现在级联的作者、用户或 user-agent 层一样。
 
-这对包含在一个页面中的 "组件" 的根元素很有用，它不希望继承外部页面的样式。然而，请注意，任何应用于该元素的 "默认" 样式(例如，来自`<div>`等块级元素的 UA 样式表的 display: block)也将被覆盖。
+这对包含在一个页面中的 "组件" 的根元素很有用，它不希望继承外部页面的样式。然而，请注意，任何应用于该元素的“默认”样式(例如，来自`<div>`等块级元素的 UA 样式表的 `display: block`) 也将被覆盖。
 
 ## 1.3. 引入 CSS
 
@@ -3059,6 +3060,8 @@ CSS 的基本设计原则之一是层叠，它允许几个样式表影响一个�
 
 因此，只要媒体查询不匹配，用户代理可以避免获取一个依赖媒体的导入。
 
+但这不避免对导入的样式表进行资源获取，实际上无论是 @import 规则使用媒体查询进行条件导入还是 link 使用 media 属性进行条件链接，都无法避免对样式表资源的获取。
+
 导入条件的估值和完整语法由媒体查询规范定义。
 
 ### 4.1.2. 处理样式表导入
@@ -3067,11 +3070,67 @@ CSS 的基本设计原则之一是层叠，它允许几个样式表影响一个�
 
 注意：这并没有对获取资源作任何要求，只是要求样式表如何反映在CSSOM中并用于像这样的规范中。假设有适当的缓存，一个UA只获取一次样式表是完全合适的，即使它被链接或导入多次。
 
-但实际上，并不推荐使用 @import 导入规则。因为 @import 导入的样式表会在导入它的那个样式表下载完毕之后才开始下载（而 link 则是会并行下载）。
-
 一个导入的样式表的来源是导入它的样式表的来源。
 
 一个导入的样式表的环境编码是导入它的样式表的编码。
+
+### 4.1.3. link 和 @import
+
+并不推荐使用 @import 导入规则。因为 @import 导入的样式表会在导入它的那个样式表下载完毕之后才开始下载（而 link 则是会并行下载）。
+
+下面准备了两个样式表：a.css 和 b.css。
+
+第一种示例的情况是 link 元素链接样式表：
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="a.css" />
+    <link rel="stylesheet" href="b.css" />
+  </head>
+  <body></body>
+</html>
+```
+
+这是在 Chrome v96.0.4664.93 上测试的结果：
+
+![link-css-network](./illustrations/link-css-network.png)
+
+可以看到，a.css 和 b.css 在几乎同时间进行了资源获取。
+
+而另外一种情况，使用 @import 导入规则来导入样式表，这是 html 文档，注意此时只有链接 a.css 样式表文件：
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="a.css" />
+  </head>
+  <body></body>
+</html>
+```
+
+同时我们在 a.css 文档种导入 b.css：
+
+```css
+@charset "utf-8";
+@import url(b.css);
+
+/* 样式规则 */
+```
+
+这是在和上个例子相同的浏览器下的测试结果：
+
+![import-css-network](./illustrations/import-css-network.png)
+
+可以看到，a.css 在下载完毕之后，b.css 才开始资源获取。
+
+
 
 ## 4.2. 值处理
 
