@@ -300,6 +300,9 @@
   - [15.9. 书写模式](#159-书写模式)
     - [15.9.1. writing-mode](#1591-writing-mode)
     - [15.9.2. text-orientation](#1592-text-orientation)
+- [16. 变换](#16-变换)
+- [17. 过渡](#17-过渡)
+- [18. 动画](#18-动画)
 
 # 1. CSS 简介
 
@@ -7177,3 +7180,10 @@ writing-mode 可以指定书写模式。可以取值：horizontal-tb(默认值)�
 选定书写模式后，可能还想改变文本行中字符的方向。这就要用到 text-orientation。可以取值：mixed(默认)，upright，sideways。
 
 当书写模式取值 vertical-lr 时，中英文的字符方向并不统一，这是因为 text-orientation 默认取值 mixed。当取值 sideways 时，2 种字符都是一个方向向侧边。而 upright 则是从上到下的方向。
+
+# 16. 变换
+
+# 17. 过渡
+
+# 18. 动画
+
